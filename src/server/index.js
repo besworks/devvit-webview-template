@@ -15,7 +15,7 @@ async function getUser(request, response) {
   const profile = await request.devvit.reddit.getCurrentUser();
   const username = profile?.username ?? 'Anon';
   const defaultAvatarUrl = 'https://www.redditstatic.com/shreddit/assets/thinking-snoo.png';
-  const avatarUrl = (await profile?.getSnoovatarUrl()) ?? defaultAvatarUrl
+  const avatarUrl = (await profile?.getSnoovatarUrl()) ?? defaultAvatarUrl;
   response.json({ type: 'userdata', username: username, avatar: avatarUrl, });
 }
 
