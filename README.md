@@ -5,7 +5,7 @@ A barebones JS only webview app template. Based on the official [Hello World Tem
 ## Sugar Free
 
 - All TypeScript has been stripped out (except **src/devvit/main.ts** which is a hardcoded path).
-- API Router example logic simplified. Just a single example route returning username & avatar.
+- API Router logic simplified. Just a single example route returning username & avatar.
 - UI trimmed down. No real moving parts. Only minimal HTML/JS/CSS boilerplate.
 - Lean, clean, and to-the-point. Start porting or prototyping quickly. No warranty.
 
