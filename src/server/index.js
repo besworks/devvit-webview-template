@@ -8,12 +8,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.text());
 app.use(devvitMiddleware);
 const router = express.Router();
-router.get("/api", testAPI);
+router.get("/api/user", getUser);
 app.use(router);
 
-async function testAPI(req, res) {
-  const { postId } = req.devvit;
-  res.json({ type: 'test', postId: postId, });
+async function getUser(request, response) {
+  const profile = await request.devvit.reddit.getCurrentUser();
+  const username = profile?.username ?? 'Anon';
+  const defaultAvatarUrl = 'https://www.redditstatic.com/shreddit/assets/thinking-snoo.png';
+  const avatarUrl = (await profile?.getSnoovatarUrl()) ?? defaultAvatarUrl
+  response.json({ type: 'userdata', username: username, avatar: avatarUrl, });
 }
 
 const port = process.env.WEBBIT_PORT || 3000;

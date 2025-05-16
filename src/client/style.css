@@ -1,13 +1,14 @@
 body {
-  font-family: sans-serif;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #171717;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: sans-serif;
   color: #e7e7e7;
+  background-color: #171717;
 }
 
 h1 {
@@ -27,7 +28,20 @@ button {
   cursor: pointer;
 }
 
-button.active {
+button:not(:disabled):hover {
   background-color: mediumseagreen;
   color: darkgreen;
+}
+
+button:disabled {
+  opacity: 0.2;
+}
+
+#avatar:not([src]),
+#avatar[src=""] {
+  visibility: hidden;
+}
+
+#avatar {
+  height: 150px;
 }
